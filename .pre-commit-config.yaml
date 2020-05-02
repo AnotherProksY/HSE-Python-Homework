@@ -1,0 +1,10 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+    -   id: check-ast
+        always_run: true
+    -   id: flake8
+        always_run: true
+    -   id: check-merge-conflict
+        always_run: true
