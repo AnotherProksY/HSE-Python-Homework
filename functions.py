@@ -14,10 +14,7 @@ def check_food():
         for dish in dishes:
             recipes = dishes[dish][1]
 
-            condition = [
-                food for food in fridge if food in recipes.keys() and
-                recipes[food] <= fridge[food]
-            ]
+            condition = [food for food in fridge if food in recipes.keys() and recipes[food] <= fridge[food]]
 
             if len(recipes) == len(condition):
                 dish_index += 1
@@ -127,10 +124,10 @@ def view_recipes():
 
             if detail_view != 'b':
                 detail_view = int(detail_view)
-                if toggle_view[detail_view-1] is False:
-                    toggle_view[detail_view-1] = True
+                if toggle_view[detail_view - 1] is False:
+                    toggle_view[detail_view - 1] = True
                 else:
-                    toggle_view[detail_view-1] = False
+                    toggle_view[detail_view - 1] = False
             else:
                 exit_condition = True
 
