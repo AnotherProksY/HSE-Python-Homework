@@ -35,7 +35,7 @@ def draw_cli():
             choice = input("Please make a choice: ")
 
             if choice == "1":
-                f.my_kitchen()
+                my_kitchen()
             elif choice == "2":
                 f.view_recipes()
             elif choice == "3":
