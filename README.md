@@ -71,3 +71,11 @@ Please read the following requirements carefully, as they affect the final grade
 * Use functions (and possibly, modules) to achieve a better structure of your program
 * Add protection against incorrect user input, absense of files or errors in their format
 * Use proper code style (informative names of variables, functions), try to follow as many PEP-8 recommendations as possible
+
+
+
+### ToDo
+
+- [x] Task 1
+- [ ] Task 2
+- [ ] Check code for <b>"code repeating"</b> and style rules defined in <b>PEP-8</b>
