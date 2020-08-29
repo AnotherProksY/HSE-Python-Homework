@@ -38,7 +38,7 @@ def check_food():
                 for ingredient in dishes[choosed_dish][1]:
                     fridge[ingredient] -= dishes[choosed_dish][1][ingredient]
 
-                print(f'Done !')
+                print('Done !')
                 sleep(1)
             else:
                 exit_condition = True
@@ -106,7 +106,7 @@ def add_good():
 
 
 def view_recipes():
-    toggle_view = [False, False, False]
+    toggle_view = [False for _ in range(len(dishes))]
 
     exit_condition = False
     while not exit_condition:
