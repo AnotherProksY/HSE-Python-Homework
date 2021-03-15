@@ -1,3 +1,5 @@
+"""Dishes list and fridge items."""
+
 dishes = {
     'bread and butter': (
         'low',
