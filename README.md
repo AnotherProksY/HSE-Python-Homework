@@ -1,4 +1,4 @@
-# Recipe Advisor Application
+# Recipe Advisor Application - Done ✅
 
 <b>Programming Homework assignment 1 for High School of Economics</b>
 
