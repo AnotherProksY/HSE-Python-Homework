@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Dishes list and fridge items."""
 
 import json

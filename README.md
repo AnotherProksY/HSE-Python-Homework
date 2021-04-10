@@ -78,4 +78,4 @@ Please read the following requirements carefully, as they affect the final grade
 
 - [x] Task 1
 - [x] Task 2
-- [ ] Check code for <b>"code repeating"</b> and style rules defined in <b>PEP-8</b>
+- [x] Check code for <b>"code repeating"</b> and style rules defined in <b>PEP-8</b>

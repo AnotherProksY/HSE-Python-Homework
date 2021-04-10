@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Module with useful functions."""
 
 from data import fridge, dishes
@@ -13,7 +14,7 @@ def check_food():
     fridge_goods = fridge.show_items()
 
     while True:
-        system('clear')
+        system('clear')  # nosec
 
         all_dishes = dishes.get()
 
@@ -63,7 +64,7 @@ def check_food():
 def view_all_fridge():
     """Show all items in fridge."""
     while True:
-        system('clear')
+        system('clear')  # nosec
 
         all_items = fridge.show_items()
 
@@ -74,7 +75,7 @@ def view_all_fridge():
             exit_status = input("To go back write 'b': ")
 
             if exit_status == 'b':
-                system('clear')
+                system('clear')  # nosec
                 break
             else:
                 raise ValueError
@@ -88,7 +89,7 @@ def add_good():
     """Add new item to fridge."""
     # Food name
     while True:
-        system('clear')
+        system('clear')  # nosec
         new_item_name = input("Add new good: ")
         if not re.search(r'\d', new_item_name):
             break
@@ -98,7 +99,7 @@ def add_good():
 
     # Food quantity
     while True:
-        system('clear')
+        system('clear')  # nosec
         try:
             new_item_quantity = int(input("Add quantity for this item: "))
             break
@@ -120,7 +121,7 @@ def view_recipes():
     toggle_view = [False for _ in range(len(all_dishes))]
 
     while True:
-        system('clear')
+        system('clear')  # nosec
 
         for idx, dish in enumerate(all_dishes):
             if toggle_view[idx] is False:
