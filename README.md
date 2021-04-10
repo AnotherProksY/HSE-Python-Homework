@@ -5,7 +5,7 @@
 
 
 <p align="center">
-  <img src="screenshot.png">
+  <img src="assets/screenshot.png">
 </p>
 
 
@@ -77,5 +77,5 @@ Please read the following requirements carefully, as they affect the final grade
 ### ToDo
 
 - [x] Task 1
-- [ ] Task 2
+- [x] Task 2
 - [ ] Check code for <b>"code repeating"</b> and style rules defined in <b>PEP-8</b>

@@ -10,17 +10,21 @@ def check_food():
     """Show available dishes."""
     dish_index = 0
     available_dish_list = {}
+    fridge_goods = fridge.show_items()
 
     while True:
         system('clear')
-        for dish in dishes:
-            recipes = dishes[dish][1]
+
+        all_dishes = dishes.get()
+
+        for dish in all_dishes:
+            recipes = all_dishes[dish][1]
 
             condition = [
                 food
-                for food in fridge
+                for food in fridge_goods
                 if food in recipes.keys()
-                and recipes[food] <= fridge[food]
+                and recipes[food] <= fridge_goods[food]
             ]
 
             if len(recipes) == len(condition):
@@ -40,8 +44,8 @@ def check_food():
                 dish_choice_index = int(dish_choice_index)
                 choosed_dish = available_dish_list[dish_choice_index]
 
-                for ingredient in dishes[choosed_dish][1]:
-                    fridge[ingredient] -= dishes[choosed_dish][1][ingredient]
+                for ingredient in all_dishes[choosed_dish][1]:
+                    fridge.remove_item(ingredient, all_dishes[choosed_dish][1][ingredient])
 
                 print('Done !')
                 sleep(1)
@@ -60,8 +64,11 @@ def view_all_fridge():
     """Show all items in fridge."""
     while True:
         system('clear')
-        for food in fridge:
-            print(f'Food: {food}\nAmount: {fridge[food]}\n')
+
+        all_items = fridge.show_items()
+
+        for food in all_items:
+            print(f'Food: {food}\nAmount: {all_items[food]}\n')
 
         try:
             exit_status = input("To go back write 'b': ")
@@ -100,10 +107,7 @@ def add_good():
             sleep(1)
 
     # Add to fridge
-    if new_item_name in fridge.keys():
-        fridge[new_item_name] += new_item_quantity
-    else:
-        fridge[new_item_name] = new_item_quantity
+    fridge.add_item(new_item_name, new_item_quantity)
 
     print(f'\nItem {new_item_name} was added to your fridge in amount of {new_item_quantity}')
     sleep(2)
@@ -111,16 +115,18 @@ def add_good():
 
 def view_recipes():
     """Show all recipes."""
-    toggle_view = [False for _ in range(len(dishes))]
+    all_dishes = dishes.get()
+
+    toggle_view = [False for _ in range(len(all_dishes))]
 
     while True:
         system('clear')
 
-        for idx, dish in enumerate(dishes):
+        for idx, dish in enumerate(all_dishes):
             if toggle_view[idx] is False:
-                print(f'{idx+1}. Dish name: "{dish}"\n')
+                print(f'{idx+1}. "{dish}"\n')
             else:
-                print(f'{idx+1}. Dish name: "{dish}"\nDifficulty of preparation -> {dishes[dish][0]}\nIngredients for this dish:\n{dishes[dish][1]}\n')
+                print(f'{idx+1}. "{dish}":\n---\nDifficulty of preparation -> {all_dishes[dish][0]}\nIngredients for this dish:\n\t{all_dishes[dish][1]}\n---\n')
 
         print('\n')
         try:
