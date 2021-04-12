@@ -1,59 +1,26 @@
 # -*- coding: utf-8 -*-
-"""Entry point for advisor app."""
+"""Main logic of advisor app."""
 
-import functions as f
-
-
-class Interface:
-    """Draw CLI interface."""
-
-    def show_menu(self):
-        """Show start screen with menu items."""
-        while True:
-
-            f.system('clear')  # nosec
-            print("1. My kitchen")
-            print("2. View recipes")
-            print("3. Make a dish")
-            print("4. Exit\n\n")
-
-            choice = input("Please make a choice: ")
-
-            if choice == "1":
-                self.__my_kitchen()
-            elif choice == "2":
-                f.view_recipes()
-            elif choice == "3":
-                f.check_food()
-            elif choice == "4":
-                f.system('clear')  # nosec
-                break
-            else:
-                print("I don't understand your choice. Please choose again")
-                f.sleep(1)
-
-    def __my_kitchen(self):
-        """Show kitchen items."""
-        while True:
-
-            f.system('clear')  # nosec
-            print("(a) View all")
-            print("(b) Add good")
-            print("(c) Back\n\n")
-
-            choice = input("Please make a choice: ")
-
-            if choice == "a":
-                f.view_all_fridge()
-            elif choice == "b":
-                f.add_good()
-            elif choice == "c":
-                break
-            else:
-                print("I don't understand your choice. Please choose again")
-                f.sleep(1)
+from interface import Interface
+from data import Fridge, Recipes
 
 
-if __name__ == "__main__":
-    interface = Interface()
-    interface.show_menu()
+class Advisor:
+    """Main app for managing data and user interaction."""
+
+    def __init__(self, files) -> None:
+        """Unpack data from tuple and create objects."""
+        # Assume that you pass a tuple of filenames
+        self.recipes_file = files[0]
+        self.fridge_file = files[1]
+
+        self.recipes = Recipes(self.recipes_file)
+        self.fridge = Fridge(self.fridge_file)
+
+    def run(self):
+        """."""
+        pass
+
+
+# interface = Interface()
+# interface.draw()
